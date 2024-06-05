@@ -43,38 +43,33 @@ export class EnergyMeterService {
 
   private createGauges(): { [property: string]: Gauge } {
     return {
-      temperature: new Gauge({
-        name: `energy_meter_temperature_celsius`,
-        help: 'Energy meter temperature in Celsius',
-        labelNames: ['meter_id'],
-      }),
       voltage: new Gauge({
-        name: `energy_meter_voltage_volts`,
+        name: `tasmota_energy_meter_voltage_volts`,
         help: 'Energy meter voltage in Volts',
         labelNames: ['meter_id'],
       }),
       current: new Gauge({
-        name: `energy_meter_current_amperes`,
+        name: `tasmota_energy_meter_current_amperes`,
         help: 'Energy meter current in Amperes',
         labelNames: ['meter_id'],
       }),
       activePower: new Gauge({
-        name: `energy_meter_active_power_watts`,
+        name: `tasmota_energy_meter_active_power_watts`,
         help: 'Energy meter active power in Watts',
         labelNames: ['meter_id'],
       }),
       apparentPower: new Gauge({
-        name: `energy_meter_apparent_power_va`,
+        name: `tasmota_energy_meter_apparent_power_va`,
         help: 'Energy meter apparent power in VA',
         labelNames: ['meter_id'],
       }),
       reactivePower: new Gauge({
-        name: `energy_meter_reactive_power_var`,
+        name: `tasmota_energy_meter_reactive_power_var`,
         help: 'Energy meter reactive power in VAr',
         labelNames: ['meter_id'],
       }),
       powerFactor: new Gauge({
-        name: `energy_meter_power_factor`,
+        name: `tasmota_energy_meter_power_factor`,
         help: 'Energy meter power factor',
         labelNames: ['meter_id'],
       }),
