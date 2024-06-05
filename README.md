@@ -42,21 +42,21 @@ This endpoint returns the measured values from the energy meters in Prometheus m
 ```
 # HELP energy_meter_voltage_volts_dehumidifierEnergyMeter Energy meter voltage in Volts
 # TYPE energy_meter_voltage_volts_dehumidifierEnergyMeter gauge
-energy_meter_voltage_volts_dehumidifierEnergyMeter{meter_id="dehumidifierEnergyMeter"} 224
+tasmota_energy_meter_voltage_volts_dehumidifierEnergyMeter{meter_id="dehumidifierEnergyMeter"} 224
 
 # HELP energy_meter_current_amperes_dehumidifierEnergyMeter Energy meter current in Amperes
 # TYPE energy_meter_current_amperes_dehumidifierEnergyMeter gauge
-energy_meter_current_amperes_dehumidifierEnergyMeter{meter_id="dehumidifierEnergyMeter"} 0.233
+tasmota_energy_meter_current_amperes_dehumidifierEnergyMeter{meter_id="dehumidifierEnergyMeter"} 0.233
 
 ...
 
 # HELP energy_meter_voltage_volts_heatingCoolingWaterHeatingEnergyMeter Energy meter voltage in Volts
 # TYPE energy_meter_voltage_volts_heatingCoolingWaterHeatingEnergyMeter gauge
-energy_meter_voltage_volts_heatingCoolingWaterHeatingEnergyMeter{meter_id="heatingCoolingWaterHeatingEnergyMeter"} 230
+tasmota_energy_meter_voltage_volts_heatingCoolingWaterHeatingEnergyMeter{meter_id="heatingCoolingWaterHeatingEnergyMeter"} 230
 
 # HELP energy_meter_current_amperes_heatingCoolingWaterHeatingEnergyMeter Energy meter current in Amperes
 # TYPE energy_meter_current_amperes_heatingCoolingWaterHeatingEnergyMeter gauge
-energy_meter_current_amperes_heatingCoolingWaterHeatingEnergyMeter{meter_id="heatingCoolingWaterHeatingEnergyMeter"} 1.5
+tasmota_energy_meter_current_amperes_heatingCoolingWaterHeatingEnergyMeter{meter_id="heatingCoolingWaterHeatingEnergyMeter"} 1.5
 
 ...
 ```
