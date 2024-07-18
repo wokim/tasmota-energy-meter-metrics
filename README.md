@@ -4,29 +4,29 @@ This project is an API server that provides data from energy meters. It offers m
 
 ## API Endpoints
 
-### GET /
+### GET /info
 
 This endpoint returns the measured values from the dehumidifier and heating/cooling/water heating energy meters in JSON format.
 
 ```json
 {
   "dehumidifierEnergyMeter": {
-    "Voltage": {
+    "voltage": {
       "value": 224,
       "unit": "V"
     },
-    "Current": {
+    "current": {
       "value": 0.233,
       "unit": "A"
     },
     ...
   },
   "heatingCoolingWaterHeatingEnergyMeter": {
-    "Voltage": {
+    "voltage": {
       "value": 230,
       "unit": "V"
     },
-    "Current": {
+    "current": {
       "value": 1.5,
       "unit": "A"
     },

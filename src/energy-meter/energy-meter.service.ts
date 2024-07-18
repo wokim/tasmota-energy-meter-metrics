@@ -76,6 +76,25 @@ export class EnergyMeterService {
     };
   }
 
+  private toCamelCase(str: string): string {
+    // 문자열을 단어로 분리하고 특수 문자 제거
+    const words = str.split(/[\s_-]+/);
+
+    // 첫 번째 단어는 소문자로 변환
+    const camelCased =
+      words[0].toLowerCase() +
+      // 나머지 단어들은 첫 글자만 대문자로 변환
+      words
+        .slice(1)
+        .map(
+          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+        )
+        .join('');
+
+    // 알파벳과 숫자만 유지
+    return camelCased.replace(/[^a-zA-Z0-9]/g, '');
+  }
+
   private removeHtmlTags(html: string): string {
     return html.replace(/<[^>]*>/g, '');
   }
@@ -94,7 +113,7 @@ export class EnergyMeterService {
       const key = match[1];
       const value = parseFloat(match[2]);
       const unit = match[3].trim();
-      result[key] = { value, unit }; // `${value} ${unit}`.trim();
+      result[this.toCamelCase(key)] = { value, unit }; // `${value} ${unit}`.trim();
     }
 
     return result;
@@ -124,18 +143,18 @@ export class EnergyMeterService {
       const data = await this.fetchEnergyMeterData(meterId);
       const gauges = this.gauges;
 
-      gauges.voltage.set({ meter_id: meterId }, data['Voltage'].value);
-      gauges.current.set({ meter_id: meterId }, data['Current'].value);
-      gauges.activePower.set({ meter_id: meterId }, data['Active Power'].value);
+      gauges.voltage.set({ meter_id: meterId }, data['voltage'].value);
+      gauges.current.set({ meter_id: meterId }, data['current'].value);
+      gauges.activePower.set({ meter_id: meterId }, data['activePower'].value);
       gauges.apparentPower.set(
         { meter_id: meterId },
-        data['Apparent Power'].value,
+        data['apparentPower'].value,
       );
       gauges.reactivePower.set(
         { meter_id: meterId },
-        data['Reactive Power'].value,
+        data['reactivePower'].value,
       );
-      gauges.powerFactor.set({ meter_id: meterId }, data['Power Factor'].value);
+      gauges.powerFactor.set({ meter_id: meterId }, data['powerFactor'].value);
     }
     return this.registry.metrics();
   }
